@@ -1,0 +1,29 @@
+# python related
+*.pyc
+*.pyo
+__pycache__/
+
+#ignore virtual enviornment
+
+env/
+
+#Django specific
+
+db.sqlite3
+
+
+#Ignore media and static files 
+
+media/
+static/
+
+
+#Ignore IDE configurations
+
+.vscode/
+
+#Ignore logs and temporary files
+
+*.log
+*.bak
+*.swp
