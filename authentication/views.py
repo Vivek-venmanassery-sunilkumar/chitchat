@@ -11,7 +11,7 @@ from django.middleware import csrf
 class Signup(APIView):  
     def post(self, request):
         data = request.data
-        serializer = SignupSerializer(data)
+        serializer = SignupSerializer(data = data)
         if serializer.is_valid():
             serializer.save()
         
@@ -22,10 +22,9 @@ class Signup(APIView):
 class Login(APIView):
     def post(self, request):
         data = request.data
-
         username = data['username']
         password = data['password']
-        user = authenticate(request, username, password)    
+        user = authenticate(request, username = username, password = password)    
         if user is None:
             return Response({'message': 'Invalid username or password'}, status=status.HTTP_400_BAD_REQUEST)
         
