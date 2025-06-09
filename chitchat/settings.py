@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authentication',
-    'rest_framework_simplejwt'
-
+    'rest_framework_simplejwt',
+    'channels',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -52,9 +53,14 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS= [
+    "http://localhost:5174"
 ]
 
 ROOT_URLCONF = 'chitchat.urls'
