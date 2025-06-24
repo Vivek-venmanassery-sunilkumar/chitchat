@@ -16,7 +16,7 @@ class Signup(APIView):
             serializer.save()
         
             return Response({'success': True}, status=status.HTTP_201_CREATED)
-        return Response({serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'success': False, 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class Login(APIView):
